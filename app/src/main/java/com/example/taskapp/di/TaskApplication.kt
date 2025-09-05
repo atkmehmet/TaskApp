@@ -3,6 +3,8 @@ package com.example.taskapp.di
 import android.content.Context
 import androidx.room.Room
 import com.example.taskapp.domain.Repository.TaskRepository
+import com.example.taskapp.domain.UseCase.AddTaskUseCase
+import com.example.taskapp.domain.UseCase.GetTaskUseCase
 import com.example.taskapp.local.Dao.TaskDao
 import com.example.taskapp.local.Database.TaskDatabase
 import com.example.taskapp.local.Repository.TaskRepositoryImp
@@ -36,5 +38,15 @@ class AppModule {
     @Provides
     fun getRepository(taskDao: TaskDao):TaskRepository{
         return TaskRepositoryImp(taskDao)
+    }
+
+    @Provides
+    fun usecaseAddProvides(repository: TaskRepository):AddTaskUseCase{
+        return AddTaskUseCase(repository )
+    }
+
+    @Provides
+    fun usecaseGetTaskAddProvides(repository: TaskRepository):GetTaskUseCase{
+        return GetTaskUseCase(repository )
     }
 }
