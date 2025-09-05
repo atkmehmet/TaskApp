@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class TaskApplication {
+class AppModule {
 
     @Singleton
     @Provides
