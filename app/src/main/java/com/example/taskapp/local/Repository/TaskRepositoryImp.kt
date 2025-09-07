@@ -27,4 +27,8 @@ class TaskRepositoryImp(
             )
         }
     }
+
+    override suspend fun getTaskFinished(id: Int) {
+         taskDao.getTaskFinished(id)
+    }
 }

@@ -41,6 +41,12 @@ fun TaskScreen(viewModel: TaskViewModel = hiltViewModel()) {
         {
             Text(text = viewModel.errorMessages)
         }
-        viewModel.
+        viewModel.taskList.forEach {task ->
+            Column {
+                Text(text = task.id.toString())
+                Text(text = task.taskString)
+                Checkbox(checked = task.taskFinished, onCheckedChange = {viewModel.getTaskFinish(task.id)})
+            }
+        }
     }
 }

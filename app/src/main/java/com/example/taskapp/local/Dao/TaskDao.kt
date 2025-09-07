@@ -16,4 +16,7 @@ interface TaskDao {
     @Query("SELECT * FROM TaskEntity")
     suspend fun getAllTask():List<TaskEntity>
 
+    @Query("UPDATE TaskEntity set finished=True where taskId=:id")
+    suspend fun getTaskFinished(id:Int)
+
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.taskapp.domain.Repository.TaskRepository
 import com.example.taskapp.domain.UseCase.AddTaskUseCase
+import com.example.taskapp.domain.UseCase.GetTaskFinish
 import com.example.taskapp.domain.UseCase.GetTaskUseCase
 import com.example.taskapp.local.Dao.TaskDao
 import com.example.taskapp.local.Database.TaskDatabase
@@ -43,6 +44,11 @@ class AppModule {
     @Provides
     fun usecaseAddProvides(repository: TaskRepository):AddTaskUseCase{
         return AddTaskUseCase(repository )
+    }
+
+    @Provides
+    fun useCaseFinishedProvides(repository: TaskRepository):GetTaskFinish{
+        return  GetTaskFinish(repository)
     }
 
     @Provides
