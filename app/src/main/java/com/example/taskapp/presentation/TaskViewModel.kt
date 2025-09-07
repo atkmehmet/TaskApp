@@ -21,6 +21,10 @@ class TaskViewModel @Inject  constructor(
     var taskText by mutableStateOf("")
     var taskBoolean by mutableStateOf(false)
     var errorMessages by mutableStateOf("")
+    var 
+    init {
+
+    }
 
     fun add(){
         viewModelScope.launch {
@@ -28,6 +32,7 @@ class TaskViewModel @Inject  constructor(
 
                 useCase.invoke(
                     Task(
+                        id = 0,
                         taskString = taskText,
                         taskFinished = taskBoolean
                     )

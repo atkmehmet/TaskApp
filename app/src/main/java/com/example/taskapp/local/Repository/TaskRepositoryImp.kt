@@ -21,6 +21,7 @@ class TaskRepositoryImp(
         val listTasks = taskDao.getAllTask()
         return listTasks.map {
             Task(
+                id = it.taskId,
                 taskString = it.taskText,
                 taskFinished = it.finished
             )
